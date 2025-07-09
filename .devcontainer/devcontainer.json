@@ -7,6 +7,30 @@
   "containerEnv": {
     "PYTHONASYNCIODEBUG": "1"
   },
+  "mounts": [
+    "source=/mnt/d/hass/hass-door-window-watcher,target=/workspaces/hass-core/config/custom_components_dev/door_window_watcher,type=bind,consistency=cached",
+    "source=/mnt/d/hass/hass-door-window-watcher/custom_components/door_window_watcher,target=/workspaces/hass-core/config/custom_components/door_window_watcher,type=bind,consistency=cached",
+
+    "source=/mnt/d/hass/hass-solar-forecast-ml,target=/workspaces/hass-core/config/custom_components_dev/solar_forecast_ml,type=bind,consistency=cached",
+    "source=/mnt/d/hass/hass-solar-forecast-ml/custom_components/solar_forecast_ml,target=/workspaces/hass-core/config/custom_components/solar_forecast_ml,type=bind,consistency=cached",
+
+    "source=/mnt/d/hass/hass-met-long,target=/workspaces/hass-core/config/custom_components_dev/met_long,type=bind,consistency=cached",
+    "source=/mnt/d/hass/hass-met-long/custom_components/met_long,target=/workspaces/hass-core/config/custom_components/met_long,type=bind,consistency=cached",
+
+    "source=/mnt/d/hass/hass-medilog,target=/workspaces/hass-core/config/custom_components_dev/medilog,type=bind,consistency=cached",
+    "source=/mnt/d/hass/hass-medilog/custom_components/medilog,target=/workspaces/hass-core/config/custom_components/medilog,type=bind,consistency=cached",
+
+    "source=/mnt/d/hass/hass-rsc,target=/workspaces/hass-core/config/custom_components_dev/rsc,type=bind,consistency=cached",
+    "source=/mnt/d/hass/hass-rsc/custom_components/rsc,target=/workspaces/hass-core/config/custom_components/rsc,type=bind,consistency=cached",
+    "source=/mnt/d/doma.salplachta.net/src/services,target=/workspaces/hass-core/config/custom_components_dev/rsc_dot_net,type=bind,consistency=cached",
+
+    "source=/mnt/d/hass/hass-picture-elements-scalable,target=/workspaces/hass-core/config/www/hass-picture-elements-scalable,type=bind,consistency=cached",
+    "source=/mnt/d/hass/hass-door-window-watcher-card,target=/workspaces/hass-core/config/www/hass-door-window-watcher-card,type=bind,consistency=cached",
+    "source=/mnt/d/hass/hass-weather-pv-card,target=/workspaces/hass-core/config/www/hass-weather-pv-card,type=bind,consistency=cached",
+    "source=/mnt/d/hass/hass-medilog-card,target=/workspaces/hass-core/config/www/hass-medilog-card,type=bind,consistency=cached",
+    "source=/mnt/d/hass/hass-sankey-energy-card,target=/workspaces/hass-core/config/www/hass-sankey-energy-card,type=bind,consistency=cached",
+    "source=/mnt/d/hass/hass-helman-card,target=/workspaces/hass-core/config/www/hass-helman-card,type=bind,consistency=cached"
+  ],
   "features": {
     "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {},
     "ghcr.io/devcontainers/features/github-cli:1": {}
@@ -16,6 +40,7 @@
   "runArgs": [
     "-e",
     "GIT_EDITOR=code --wait",
+    "--privileged",
     "--security-opt",
     "label=disable"
   ],

@@ -57,7 +57,7 @@
       "request": "attach",
       "connect": {
         "port": 5678,
-        "host": "localhost"
+        "host": "192.168.0.44"
       },
       "pathMappings": [
         {
@@ -74,12 +74,12 @@
       "request": "attach",
       "connect": {
         "port": 5678,
-        "host": "homeassistant.local"
+        "host": "192.168.0.44"
       },
       "pathMappings": [
         {
-          "localRoot": "${workspaceFolder}",
-          "remoteRoot": "/usr/src/homeassistant"
+          "localRoot": "${workspaceFolder}/config",
+          "remoteRoot": "/config"
         }
       ]
     }
