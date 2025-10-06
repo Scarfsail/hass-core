@@ -32,6 +32,8 @@
     "source=/mnt/d/hass/hass-helman-card,target=/workspaces/hass-core/config/www/hass-helman-card,type=bind,consistency=cached"
   ],
   "features": {
+    // Node feature required for Claude Code until fixed https://github.com/anthropics/devcontainer-features/issues/28
+    "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {},
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
