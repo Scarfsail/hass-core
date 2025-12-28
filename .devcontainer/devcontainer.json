@@ -25,6 +25,7 @@
     "source=/mnt/d/doma.salplachta.net/src/services,target=/workspaces/hass-core/config/custom_components_dev/rsc_dot_net,type=bind,consistency=cached",
 
     "source=/mnt/d/hass/hass-picture-elements-scalable,target=/workspaces/hass-core/config/www/hass-picture-elements-scalable,type=bind,consistency=cached",
+    "source=/mnt/d/hass/hass-scalable-house-plan,target=/workspaces/hass-core/config/www/hass-scalable-house-plan,type=bind,consistency=cached",
     "source=/mnt/d/hass/hass-door-window-watcher-card,target=/workspaces/hass-core/config/www/hass-door-window-watcher-card,type=bind,consistency=cached",
     "source=/mnt/d/hass/hass-weather-pv-card,target=/workspaces/hass-core/config/www/hass-weather-pv-card,type=bind,consistency=cached",
     "source=/mnt/d/hass/hass-medilog-card,target=/workspaces/hass-core/config/www/hass-medilog-card,type=bind,consistency=cached",
