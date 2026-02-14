@@ -2,34 +2,36 @@
   "name": "Home Assistant Dev",
   "context": "..",
   "dockerFile": "../Dockerfile.dev",
-  "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && script/setup",
+  "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && script/setup && sudo apt-get update && sudo apt-get install -y mc tmux",
   "postStartCommand": "script/bootstrap",
+  "initializeCommand": "mkdir -p config/home/.claude && touch config/home/.claude.json",
   "containerEnv": {
     "PYTHONASYNCIODEBUG": "1"
   },
   "mounts": [
-    "source=/home/ondra/dev/hass/hass-door-window-watcher,target=/workspaces/hass-core/config/custom_components_dev/door_window_watcher,type=bind,consistency=cached",
-    "source=/home/ondra/dev/hass/hass-door-window-watcher/custom_components/door_window_watcher,target=/workspaces/hass-core/config/custom_components/door_window_watcher,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/config/home/.claude,target=/home/vscode/.claude,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/config/home/.claude.json,target=/home/vscode/.claude.json,type=bind,consistency=cached",
 
-    "source=/home/ondra/dev/hass/hass-solar-forecast-ml,target=/workspaces/hass-core/config/custom_components_dev/solar_forecast_ml,type=bind,consistency=cached",
-    "source=/home/ondra/dev/hass/hass-solar-forecast-ml/custom_components/solar_forecast_ml,target=/workspaces/hass-core/config/custom_components/solar_forecast_ml,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../hass-door-window-watcher,target=/workspaces/hass-core/config/custom_components_repo/door_window_watcher,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../hass-door-window-watcher/custom_components/door_window_watcher,target=/workspaces/hass-core/config/custom_components/door_window_watcher,type=bind,consistency=cached",
 
-    "source=/home/ondra/dev/hass/hass-met-long,target=/workspaces/hass-core/config/custom_components_dev/met_long,type=bind,consistency=cached",
-    "source=/home/ondra/dev/hass/hass-met-long/custom_components/met_long,target=/workspaces/hass-core/config/custom_components/met_long,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../hass-solar-forecast-ml,target=/workspaces/hass-core/config/custom_components_repo/solar_forecast_ml,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../hass-solar-forecast-ml/custom_components/solar_forecast_ml,target=/workspaces/hass-core/config/custom_components/solar_forecast_ml,type=bind,consistency=cached",
 
-    "source=/home/ondra/dev/hass/hass-medilog,target=/workspaces/hass-core/config/custom_components_dev/medilog,type=bind,consistency=cached",
-    "source=/home/ondra/dev/hass/hass-medilog/custom_components/medilog,target=/workspaces/hass-core/config/custom_components/medilog,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../hass-met-long,target=/workspaces/hass-core/config/custom_components_repo/met_long,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../hass-met-long/custom_components/met_long,target=/workspaces/hass-core/config/custom_components/met_long,type=bind,consistency=cached",
 
-    "source=/home/ondra/dev/hass/hass-rsc,target=/workspaces/hass-core/config/custom_components_dev/rsc,type=bind,consistency=cached",
-    "source=/home/ondra/dev/hass/hass-rsc/custom_components/rsc,target=/workspaces/hass-core/config/custom_components/rsc,type=bind,consistency=cached",
-    "source=/mnt/d/doma.salplachta.net/src/services,target=/workspaces/hass-core/config/custom_components_dev/rsc_dot_net,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../hass-medilog,target=/workspaces/hass-core/config/custom_components_repo/medilog,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../hass-medilog/custom_components/medilog,target=/workspaces/hass-core/config/custom_components/medilog,type=bind,consistency=cached",
 
-    "source=/home/ondra/dev/hass/hass-scalable-house-plan,target=/workspaces/hass-core/config/www/hass-scalable-house-plan,type=bind,consistency=cached",
-    "source=/home/ondra/dev/hass/hass-door-window-watcher-card,target=/workspaces/hass-core/config/www/hass-door-window-watcher-card,type=bind,consistency=cached",
-    "source=/home/ondra/dev/hass/hass-weather-pv-card,target=/workspaces/hass-core/config/www/hass-weather-pv-card,type=bind,consistency=cached",
-    "source=/home/ondra/dev/hass/hass-medilog-card,target=/workspaces/hass-core/config/www/hass-medilog-card,type=bind,consistency=cached",
-    "source=/home/ondra/dev/hass/hass-sankey-energy-card,target=/workspaces/hass-core/config/www/hass-sankey-energy-card,type=bind,consistency=cached",
-    "source=/home/ondra/dev/hass/hass-helman-card,target=/workspaces/hass-core/config/www/hass-helman-card,type=bind,consistency=cached"
+    "source=${localWorkspaceFolder}/../hass-rsc,target=/workspaces/hass-core/config/custom_components_repo/rsc,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../hass-rsc/custom_components/rsc,target=/workspaces/hass-core/config/custom_components/rsc,type=bind,consistency=cached",
+
+    "source=${localWorkspaceFolder}/../hass-scalable-house-plan,target=/workspaces/hass-core/config/www/hass-scalable-house-plan,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../hass-door-window-watcher-card,target=/workspaces/hass-core/config/www/hass-door-window-watcher-card,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../hass-weather-pv-card,target=/workspaces/hass-core/config/www/hass-weather-pv-card,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../hass-medilog-card,target=/workspaces/hass-core/config/www/hass-medilog-card,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/../hass-helman-card,target=/workspaces/hass-core/config/www/hass-helman-card,type=bind,consistency=cached"
   ],
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {}
