@@ -15,9 +15,6 @@
     "source=${localWorkspaceFolder}/../hass-door-window-watcher,target=/workspaces/hass-core/config/custom_components_repo/door_window_watcher,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/../hass-door-window-watcher/custom_components/door_window_watcher,target=/workspaces/hass-core/config/custom_components/door_window_watcher,type=bind,consistency=cached",
 
-    "source=${localWorkspaceFolder}/../hass-solar-forecast-ml,target=/workspaces/hass-core/config/custom_components_repo/solar_forecast_ml,type=bind,consistency=cached",
-    "source=${localWorkspaceFolder}/../hass-solar-forecast-ml/custom_components/solar_forecast_ml,target=/workspaces/hass-core/config/custom_components/solar_forecast_ml,type=bind,consistency=cached",
-
     "source=${localWorkspaceFolder}/../hass-met-long,target=/workspaces/hass-core/config/custom_components_repo/met_long,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/../hass-met-long/custom_components/met_long,target=/workspaces/hass-core/config/custom_components/met_long,type=bind,consistency=cached",
 
