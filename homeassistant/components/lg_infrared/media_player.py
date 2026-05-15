@@ -1,7 +1,5 @@
 """Media player platform for LG IR integration."""
 
-from __future__ import annotations
-
 from infrared_protocols.codes.lg.tv import LGTVCode
 
 from homeassistant.components.media_player import (
@@ -26,7 +24,9 @@ async def async_setup_entry(
     async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
     """Set up LG IR media player from config entry."""
-    infrared_entity_id = entry.data[CONF_INFRARED_ENTITY_ID]
+    if not (infrared_entity_id := entry.data.get(CONF_INFRARED_ENTITY_ID)):
+        return
+
     device_type = entry.data[CONF_DEVICE_TYPE]
     if device_type == LGDeviceType.TV:
         async_add_entities([LgIrTvMediaPlayer(entry, infrared_entity_id)])
@@ -57,11 +57,11 @@ class LgIrTvMediaPlayer(LgIrEntity, MediaPlayerEntity):
 
     async def async_turn_on(self) -> None:
         """Turn on the TV."""
-        await self._send_command(LGTVCode.POWER)
+        await self._send_command(LGTVCode.POWER_ON)
 
     async def async_turn_off(self) -> None:
         """Turn off the TV."""
-        await self._send_command(LGTVCode.POWER)
+        await self._send_command(LGTVCode.POWER_OFF)
 
     async def async_volume_up(self) -> None:
         """Send volume up command."""

@@ -1,7 +1,5 @@
 """IMGW-PIB sensor platform."""
 
-from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any
@@ -16,7 +14,12 @@ from homeassistant.components.sensor import (
     SensorEntityDescription,
     SensorStateClass,
 )
-from homeassistant.const import UnitOfLength, UnitOfTemperature, UnitOfVolumeFlowRate
+from homeassistant.const import (
+    PERCENTAGE,
+    UnitOfLength,
+    UnitOfTemperature,
+    UnitOfVolumeFlowRate,
+)
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
@@ -59,6 +62,14 @@ SENSOR_TYPES: tuple[ImgwPibSensorEntityDescription, ...] = (
         options=list(HYDROLOGICAL_ALERTS_MAP.values()),
         value=lambda data: data.hydrological_alert.value,
         attrs=gen_alert_attributes,
+    ),
+    ImgwPibSensorEntityDescription(
+        key="ice_phenomena",
+        translation_key="ice_phenomena",
+        native_unit_of_measurement=PERCENTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+        value=lambda data: data.ice_phenomena.value,
+        suggested_display_precision=0,
     ),
     ImgwPibSensorEntityDescription(
         key="water_flow",
@@ -107,9 +118,7 @@ async def async_setup_entry(
             entity_reg.async_remove(entity_id)
 
     async_add_entities(
-        ImgwPibSensorEntity(coordinator, description)
-        for description in SENSOR_TYPES
-        if getattr(coordinator.data, description.key).value is not None
+        ImgwPibSensorEntity(coordinator, description) for description in SENSOR_TYPES
     )
 
 

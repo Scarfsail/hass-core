@@ -1,7 +1,5 @@
 """Support for Tractive switches."""
 
-from __future__ import annotations
-
 from dataclasses import dataclass
 import logging
 from typing import Any, Literal
@@ -112,6 +110,7 @@ class TractiveSwitch(TractiveEntity, SwitchEntity):
         """Turn on a switch."""
         try:
             result = await self._method(True)
+        # pylint: disable-next=home-assistant-action-swallowed-exception
         except TractiveError as error:
             _LOGGER.error(error)
             return
@@ -124,6 +123,7 @@ class TractiveSwitch(TractiveEntity, SwitchEntity):
         """Turn off a switch."""
         try:
             result = await self._method(False)
+        # pylint: disable-next=home-assistant-action-swallowed-exception
         except TractiveError as error:
             _LOGGER.error(error)
             return
