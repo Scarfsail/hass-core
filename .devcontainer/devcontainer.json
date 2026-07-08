@@ -12,26 +12,14 @@
     "source=${localWorkspaceFolder}/config/home/.claude,target=/home/vscode/.claude,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/config/home/.claude.json,target=/home/vscode/.claude.json,type=bind,consistency=cached",
 
-    "source=${localWorkspaceFolder}/../hass-door-window-watcher,target=/workspaces/hass-core/config/custom_components_repo/door_window_watcher,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/../hass-door-window-watcher/custom_components/door_window_watcher,target=/workspaces/hass-core/config/custom_components/door_window_watcher,type=bind,consistency=cached",
-
-    "source=${localWorkspaceFolder}/../hass-met-long,target=/workspaces/hass-core/config/custom_components_repo/met_long,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/../hass-met-long/custom_components/met_long,target=/workspaces/hass-core/config/custom_components/met_long,type=bind,consistency=cached",
-
-    "source=${localWorkspaceFolder}/../hass-medilog,target=/workspaces/hass-core/config/custom_components_repo/medilog,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/../hass-medilog/custom_components/medilog,target=/workspaces/hass-core/config/custom_components/medilog,type=bind,consistency=cached",
-
-    "source=${localWorkspaceFolder}/../hass-rsc,target=/workspaces/hass-core/config/custom_components_repo/rsc,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/../hass-rsc/custom_components/rsc,target=/workspaces/hass-core/config/custom_components/rsc,type=bind,consistency=cached",
-
-    "source=${localWorkspaceFolder}/../hass-helman,target=/workspaces/hass-core/config/custom_components_repo/helman,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/../hass-helman/custom_components/helman,target=/workspaces/hass-core/config/custom_components/helman,type=bind,consistency=cached",
 
     "source=${localWorkspaceFolder}/../hass-scalable-house-plan,target=/workspaces/hass-core/config/www/hass-scalable-house-plan,type=bind,consistency=cached",
-    "source=${localWorkspaceFolder}/../hass-door-window-watcher-card,target=/workspaces/hass-core/config/www/hass-door-window-watcher-card,type=bind,consistency=cached",
-    "source=${localWorkspaceFolder}/../hass-weather-pv-card,target=/workspaces/hass-core/config/www/hass-weather-pv-card,type=bind,consistency=cached",
-    "source=${localWorkspaceFolder}/../hass-medilog-card,target=/workspaces/hass-core/config/www/hass-medilog-card,type=bind,consistency=cached",
-    "source=${localWorkspaceFolder}/../hass-helman-card,target=/workspaces/hass-core/config/www/hass-helman-card,type=bind,consistency=cached"
+    "source=${localWorkspaceFolder}/../hass-weather-pv-card,target=/workspaces/hass-core/config/www/hass-weather-pv-card,type=bind,consistency=cached"
   ],
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {}
