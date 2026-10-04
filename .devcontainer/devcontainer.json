@@ -1,7 +1,9 @@
 {
   "name": "Home Assistant Dev",
-  "context": "..",
-  "dockerFile": "../Dockerfile.dev",
+  "build": {
+    "dockerfile": "../Dockerfile.dev",
+    "context": ".."
+  },
   "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && script/setup && sudo apt-get update && sudo apt-get install -y mc tmux",
   "postStartCommand": "script/bootstrap",
   "initializeCommand": "mkdir -p config/home/.claude && touch config/home/.claude.json",
